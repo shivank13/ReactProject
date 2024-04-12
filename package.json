@@ -1,0 +1,34 @@
+{
+  "name": "reactproject",
+  "version": "1.0.0",
+  "description": "React website for learning",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivank13/ReactProject.git"
+  },
+  "keywords": [
+    "React",
+    "training"
+  ],
+  "author": "Shivank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shivank13/ReactProject/issues"
+  },
+  "homepage": "https://github.com/shivank13/ReactProject#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist":[
+    "last 2 versions"
+  ]
+}
