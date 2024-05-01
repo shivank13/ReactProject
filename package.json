@@ -4,8 +4,9 @@
   "description": "React website for learning",
   "main": "app.js",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "start:server": "node src/websocketServer.js",
+    "start:app": "parcel index.html",
+    "start:both": "concurrently \"npm run start:server\" \"npm run start:app\"",
     "test": "jest"
   },
   "repository": {
@@ -23,13 +24,17 @@
   },
   "homepage": "https://github.com/shivank13/ReactProject#readme",
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "parcel": "^2.12.0",
-    "process": "^0.11.10"
+    "postcss": "^8.4.38",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.3"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "ws": "^8.16.0"
   },
   "browserslist": [
     "last 2 versions"

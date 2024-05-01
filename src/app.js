@@ -7,8 +7,43 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { useEffect } from "react";
+
 
 const App = () => {
+
+  useEffect(() => {
+    const socket = new WebSocket('ws://localhost:3001');
+
+    socket.onopen = () => {
+        console.log('WebSocket connection established');
+    };
+
+    socket.onmessage = (event) => {
+        console.log('Received message type:', typeof event.data); // Verify the data type received
+        if (event.data instanceof Blob) {
+            event.data.text().then((data) => {
+                try {
+                    const message = JSON.parse(data);
+                    console.log('Received message:', message);
+
+                    if (message.properties) {
+                        console.log('UI element properties:', message.properties);
+                        // Process UI element properties received from the WebSocket
+                    }
+                } catch (error) {
+                    console.error('Error parsing JSON data:', error);
+                }
+            });
+        }
+    };
+
+    return () => {
+        socket.close();
+        console.log('WebSocket connection closed');
+    };
+}, []);
+
   return (
     <div className="App">
       <Header />
